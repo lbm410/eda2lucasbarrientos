@@ -1,57 +1,63 @@
 package org.eda2.practica02;
 
-import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ConectarArchivo {
 	
 	public static void main(String[] args) throws IOException {
-		SolucionesMochila sm = cargarProblema("p02");
+		String ruta = System.getProperty("user.dir")
+				+File.separator+"src"
+				+File.separator+"org" 
+				+File.separator+"eda2"
+				+File.separator+"practica02";
+		SolucionesMochila sm = cargarArchivo(ruta, "datos.txt");
 		Resultado r = sm.algoritmo2();
 		System.out.println(r);
 	}
 	
-	public static SolucionesMochila cargarProblema(String problema) throws IOException {
-		double P = 0;
+	public static SolucionesMochila cargarArchivo (String ruta, String archivo) {
+		String route = ruta+File.separator+archivo;
+		Double p = null;
 		ArrayList<Objeto> lista = new ArrayList<Objeto>();
-		
-		String line;
-		String line2;
-		BufferedReader br;
-		BufferedReader br2;
-		String ruta = "https://people.sc.fsu.edu/~jburkardt/datasets/knapsack_01/"+problema+"_";
-		
-		br = getBuffer(ruta, "c.txt");
-		while((line = br.readLine()) != null) {
-			P = Double.parseDouble(line);
+		File f = new File(route);
+		if(!f.exists()) {
+			System.out.println("Tas quivocao");
+			throw new RuntimeException("No veas no?");
 		}
-		br.close();
-		
-		br = getBuffer(ruta, "w.txt");
-		br2 = getBuffer(ruta, "p.txt");
-		
-		int n = 1;
-		while((line = br.readLine()) != null && (line2 = br2.readLine()) != null) {
-			double peso = Double.parseDouble(line);
-			double beneficio = Double.parseDouble(line2);
-			Objeto obj = new Objeto("Objeto "+n, beneficio, peso);
-			n++;
-			lista.add(obj);
+		try {
+			@SuppressWarnings("resource")
+			Scanner sc = new Scanner(f);
+			while(sc.hasNextLine()) {
+			String linea = sc.nextLine();
+			if(linea.trim().isEmpty()) continue;
+			if(linea.startsWith("#")) continue;
+			String[] tokens = linea.split(";");
+			Objeto obj;
+			if (tokens.length == 1) {
+				p = Double.parseDouble(tokens[0]);
+			} else if(tokens.length == 3) {
+				obj = new Objeto(tokens[0],
+						Double.parseDouble(tokens[1]),
+						Double.parseDouble(tokens[2]));
+				lista.add(obj);
+			} else if(tokens.length == 4) {
+				obj = new Objeto(tokens[0],
+						Double.parseDouble(tokens[1]),
+						Double.parseDouble(tokens[2]),
+						Double.parseDouble(tokens[3]));
+				lista.add(obj);
+				
+			}
 		}
-		return new SolucionesMochila(P, lista);
+			return new SolucionesMochila(p, lista);
+			} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			}
+		return null;
+		}
 	}
 	
-	public static BufferedReader getBuffer(String ruta, String archivo) throws IOException {
-		URL url = new URL(ruta+archivo);
-		URLConnection con = url.openConnection();
-		BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-		return br;
-	}
-
-}

@@ -1,0 +1,11 @@
+#Esto es un comentario
+#Caso 1
+
+#Instagram
+
+165
+Rotulador;3;50
+Cacahuete;2;15;4
+Patata;4;30
+Oro;100;3
+Caramelo;2;90
