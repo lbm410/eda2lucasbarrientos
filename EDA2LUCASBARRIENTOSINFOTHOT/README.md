@@ -1,6 +1,6 @@
 # PROCEDED A MAMARME LA BERGA
 
-<iframe src="https://giphy.com/embed/3EuAsjZDUJefK" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/hollywoodsuite-film-films-hollywood-suite-3EuAsjZDUJefK">via GIPHY</a></p>
+![image](https://user-images.githubusercontent.com/114431006/233783296-3f345adf-a0c0-4264-8090-154be446aeb9.png)
 
 **Mi verga es el único integrante:**
 - Lucas Barrientos Muñoz
