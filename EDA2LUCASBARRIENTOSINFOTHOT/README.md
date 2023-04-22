@@ -1,6 +1,6 @@
 # PROCEDED A MAMARME LA BERGA
 
-![image](https://user-images.githubusercontent.com/114431006/233783296-3f345adf-a0c0-4264-8090-154be446aeb9.png)
+![giphy](https://user-images.githubusercontent.com/114431006/233783314-bf75173f-b81c-4f4a-bbd0-87e29f85b56b.gif)
 
 **Mi verga es el único integrante:**
 - Lucas Barrientos Muñoz
