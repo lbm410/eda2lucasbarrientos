@@ -1,0 +1,16 @@
+0
+6
+Almeria
+El_Ejido
+Huercal_Overa
+Retamar
+Aguadulce
+Nijar
+7
+Almeria El_Ejido 33
+Almeria Huercal 6
+Almeria Retamar 15
+Almeria Aguadulce 13
+El_Ejido Aguadulce 26
+Huercal_Overa Retamar 17
+Nijar Huercal_Overa 40
